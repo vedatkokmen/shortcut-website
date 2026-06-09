@@ -151,7 +151,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="discovery-label">BALI SOCIAL DISCOVERY</p>
             <h1>
-              Meet people
+              Meet people 
               <span>in your mode.</span>
             </h1>
             <p className="hero-subtitle">
