@@ -141,7 +141,7 @@ input {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.94fr) minmax(340px, 0.72fr);
+  grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.76fr);
   align-items: center;
   gap: 72px;
   width: min(1180px, calc(100% - 48px));
@@ -173,22 +173,31 @@ input {
 .hero-copy h1,
 .section-heading h2,
 .mode-section-copy h2,
-.waitlist-section h2 {
+.download-copy h2 {
   font-family: var(--font-heading);
   font-weight: 650;
   letter-spacing: -0.045em;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .hero-copy h1 {
   margin: 16px 0 0;
-  font-size: clamp(68px, 10vw, 142px);
-  line-height: 0.86;
-  max-width: 780px;
+  font-size: clamp(64px, 8.4vw, 116px);
+  line-height: 0.91;
+  max-width: 760px;
 }
 
-.hero-copy h1 span {
+.hero-title-line,
+.hero-title-emphasis {
   display: block;
+}
+
+.hero-title-line {
+  color: var(--ink);
+}
+
+.hero-title-emphasis {
   color: var(--ember);
 }
 
@@ -388,7 +397,7 @@ input {
 .intro-band,
 .modes-section,
 .tide-section,
-.waitlist-section {
+.download-section {
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
   padding: 96px 0;
@@ -396,17 +405,17 @@ input {
 
 .intro-band {
   display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
-  gap: 68px;
+  grid-template-columns: minmax(500px, 1fr) minmax(0, 1fr);
+  gap: 56px;
   border-bottom: 1px solid var(--ink-08);
 }
 
 .section-heading h2,
 .mode-section-copy h2,
-.waitlist-section h2 {
+.download-copy h2 {
   margin: 12px 0 0;
-  font-size: clamp(44px, 5.2vw, 72px);
-  line-height: 0.94;
+  font-size: clamp(42px, 4.7vw, 68px);
+  line-height: 0.98;
 }
 
 .steps-grid {
@@ -439,8 +448,7 @@ input {
 .step-card p,
 .mode-section-copy p,
 .mode-cards p,
-.profile-card strong,
-.waitlist-form p {
+.profile-card strong {
   color: var(--ink-60);
   font-size: 15px;
   line-height: 1.55;
@@ -448,7 +456,7 @@ input {
 
 .modes-section {
   display: grid;
-  grid-template-columns: 0.86fr 1.14fr;
+  grid-template-columns: minmax(420px, 0.96fr) minmax(0, 1.04fr);
   gap: 72px;
   align-items: start;
 }
@@ -553,9 +561,9 @@ input {
   font-weight: 500;
 }
 
-.waitlist-section {
+.download-section {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: minmax(430px, 0.92fr) minmax(0, 1.08fr);
   gap: 64px;
   width: 100%;
   max-width: none;
@@ -566,63 +574,105 @@ input {
   color: var(--paper-high);
 }
 
-.waitlist-section .eyebrow,
-.waitlist-section h2 {
+.download-section .eyebrow,
+.download-copy h2 {
   color: var(--paper-high);
 }
 
-.waitlist-form {
+.download-copy {
   align-self: center;
 }
 
-.waitlist-form label {
-  display: block;
-  margin-bottom: 14px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 15px;
-  font-weight: 750;
+.download-copy > p:last-child {
+  max-width: 430px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-.waitlist-form div {
-  display: flex;
-  gap: 10px;
+.download-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-self: center;
 }
 
-.waitlist-form input {
-  min-width: 0;
-  flex: 1;
-  min-height: 54px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--paper-high);
-  outline: none;
-  padding: 0 20px;
+.download-card {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
+    rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
 }
 
-.waitlist-form input::placeholder {
-  color: rgba(255, 255, 255, 0.46);
-}
-
-.waitlist-form button {
-  display: inline-flex;
+.store-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 10px;
-  min-height: 54px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--ember);
-  color: var(--paper-high);
-  padding: 0 22px;
-  font-size: 14px;
-  font-weight: 850;
-  cursor: pointer;
+  gap: 12px;
+  min-height: 64px;
+  border-radius: 18px;
+  background: var(--paper-high);
+  color: var(--ink);
+  padding: 0 16px;
+  transition: transform 180ms ease, background 180ms ease;
 }
 
-.waitlist-form p {
-  margin-top: 14px;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 13px;
+.store-link:hover {
+  transform: translateY(-1px);
+  background: var(--sand-high);
+}
+
+.store-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.store-link span,
+.store-link small {
+  display: block;
+}
+
+.store-link span {
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.store-link small {
+  margin-bottom: 2px;
+  color: var(--ink-60);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.qr-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(244, 236, 223, 0.92), rgba(255, 255, 255, 0.98));
+  padding: 18px;
+}
+
+.qr-link img {
+  width: min(100%, 188px);
+  height: auto;
+  border-radius: 10px;
+}
+
+.download-card p {
+  margin: 13px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  font-weight: 750;
+  text-align: center;
 }
 
 @media (max-width: 980px) {
@@ -637,7 +687,7 @@ input {
   .hero-content,
   .intro-band,
   .modes-section,
-  .waitlist-section {
+  .download-section {
     grid-template-columns: 1fr;
   }
 
@@ -708,7 +758,9 @@ input {
   }
 
   .hero-copy h1 {
-    font-size: clamp(58px, 18vw, 86px);
+    font-size: clamp(56px, 15.6vw, 72px);
+    line-height: 0.92;
+    max-width: 370px;
   }
 
   .hero-subtitle {
@@ -741,15 +793,16 @@ input {
   .intro-band,
   .modes-section,
   .tide-section,
-  .waitlist-section {
+  .download-section {
     padding-top: 72px;
     padding-bottom: 72px;
   }
 
   .section-heading h2,
   .mode-section-copy h2,
-  .waitlist-section h2 {
-    font-size: clamp(42px, 13vw, 58px);
+  .download-copy h2 {
+    font-size: clamp(36px, 9.4vw, 46px);
+    line-height: 1;
   }
 
   .step-card {
@@ -758,7 +811,7 @@ input {
     padding: 20px 0 0;
   }
 
-  .waitlist-form div {
-    flex-direction: column;
+  .download-panel {
+    grid-template-columns: 1fr;
   }
 }
