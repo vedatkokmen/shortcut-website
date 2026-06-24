@@ -10,5 +10,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: [`${siteConfig.url}/welcome-lifestyle.png`],
     },
+    {
+      url: `${siteConfig.url}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${siteConfig.url}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
   ];
 }
