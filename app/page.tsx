@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { SiteFooter } from "./_components/SiteFooter";
 import { siteConfig } from "./site-config";
 
 const modes = [
@@ -188,6 +189,7 @@ function PhonePreview() {
 
 export default function Home() {
   return (
+    <>
     <main className="min-h-screen overflow-hidden bg-[var(--paper)] text-[var(--ink)]">
       <script
         type="application/ld+json"
@@ -357,5 +359,7 @@ export default function Home() {
         </div>
       </section>
     </main>
+    <SiteFooter />
+    </>
   );
 }
